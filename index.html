@@ -392,6 +392,98 @@ body {
 .gloss-def { font-size:13px; color:var(--ink-2); line-height:1.55; }
 .gloss-def strong { color:var(--ink); font-weight:600; }
 
+/* === BuCa genealogy === */
+.buca-frame {
+  background:var(--navy); color:white; padding:24px 28px;
+  border-radius:10px 10px 0 0; display:flex; justify-content:space-between;
+  align-items:center; gap:24px; flex-wrap:wrap;
+}
+.buca-frame .left h4 { font-size:11px; font-weight:700; letter-spacing:0.08em; color:var(--yellow); text-transform:uppercase; margin-bottom:8px; }
+.buca-frame .left .title { font-size:20px; font-weight:700; letter-spacing:-0.015em; line-height:1.25; }
+.buca-frame .left .meta { font-size:12px; color:rgba(255,255,255,0.7); margin-top:6px; }
+.buca-frame .right { text-align:right; }
+.buca-frame .right .num { font-size:30px; font-weight:700; letter-spacing:-0.02em; line-height:1; color:white; }
+.buca-frame .right .num small { font-size:13px; color:rgba(255,255,255,0.7); margin-left:4px; font-weight:500; }
+.buca-frame .right .lbl { font-size:11px; color:rgba(255,255,255,0.65); margin-top:6px; font-weight:500; }
+.buca-frame::after {
+  content:''; position:absolute; left:50%; transform:translateX(-50%);
+  margin-top:24px; width:2px; height:24px; background:var(--line);
+}
+.buca-frame-wrap { position:relative; padding-bottom:32px; }
+.buca-frame-wrap::after {
+  content:''; position:absolute; left:50%; bottom:0; transform:translateX(-50%);
+  width:80%; max-width:900px; height:2px; background:var(--line);
+}
+.buca-frame-wrap::before {
+  content:''; position:absolute; left:50%; top:100%; transform:translateX(-50%);
+  width:2px; height:32px; background:var(--line);
+}
+
+.lever-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; position:relative; margin-top:0; }
+.lever-cards::before {
+  content:''; position:absolute; top:-32px; left:16.67%; right:16.67%;
+  height:2px; background:transparent;
+}
+
+.lever-card {
+  background:var(--white); border:1px solid var(--line); border-radius:10px;
+  padding:0; position:relative; display:flex; flex-direction:column;
+  overflow:hidden;
+}
+.lever-card::before {
+  content:''; position:absolute; top:-32px; left:50%; transform:translateX(-50%);
+  width:2px; height:32px; background:var(--line);
+}
+.lever-card .lc-head { padding:18px 22px 14px 22px; border-bottom:1px solid var(--line-2); }
+.lever-card .lc-tag {
+  display:inline-block; font-size:10.5px; font-weight:700; letter-spacing:0.07em;
+  text-transform:uppercase; color:var(--blue); padding:3px 8px;
+  background:var(--tint); border-radius:3px; margin-bottom:8px;
+}
+.lever-card .lc-name {
+  font-size:18px; font-weight:700; letter-spacing:-0.015em; line-height:1.25;
+  color:var(--ink); margin-bottom:6px;
+}
+.lever-card .lc-acn {
+  font-size:11.5px; color:var(--muted); font-weight:500;
+}
+.lever-card .lc-acn b { color:var(--ink); font-weight:700; font-variant-numeric:tabular-nums; }
+.lever-card .lc-arrow {
+  text-align:center; padding:14px 0 12px 0;
+  color:var(--muted); font-size:18px;
+}
+.lever-card .lc-arrow.gap { color:var(--line); }
+.lever-card .lc-deepdive {
+  padding:18px 22px 22px 22px; flex:1;
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.lever-card .lc-status {
+  display:inline-block; font-size:10px; font-weight:700; letter-spacing:0.07em;
+  text-transform:uppercase; padding:4px 9px; border-radius:3px; margin-bottom:12px;
+}
+.lever-card .lc-status.done { background:rgba(45,134,89,0.12); color:var(--positive); }
+.lever-card .lc-status.partial { background:rgba(217,119,6,0.13); color:var(--warn); }
+.lever-card .lc-status.gap { background:var(--line-2); color:var(--muted); }
+.lever-card .lc-dd-title {
+  font-size:15px; font-weight:700; letter-spacing:-0.012em; line-height:1.3;
+  margin-bottom:6px; color:var(--ink);
+}
+.lever-card .lc-dd-meta {
+  font-size:11.5px; color:var(--muted); margin-bottom:14px; font-weight:500;
+}
+.lever-card .lc-dd-num {
+  font-size:28px; font-weight:700; letter-spacing:-0.025em; line-height:1;
+  color:var(--blue); margin-bottom:6px; font-variant-numeric:tabular-nums;
+}
+.lever-card .lc-dd-num.muted { color:var(--muted-2); font-weight:300; }
+.lever-card .lc-dd-num small { font-size:13px; color:var(--muted); margin-left:4px; font-weight:500; }
+.lever-card .lc-dd-note {
+  font-size:12.5px; color:var(--muted); line-height:1.55; margin-top:14px;
+  padding-top:14px; border-top:1px solid var(--line-2);
+}
+.lever-card .lc-dd-note strong { color:var(--ink); font-weight:600; }
+.lever-card.gap .lc-deepdive { background:#FBFCFE; }
+
 /* === Treemap === */
 .tm-wrap { background:var(--white); border:1px solid var(--line); border-radius:10px; padding:32px 36px; margin-top:32px; }
 .tm-meta { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:22px; padding-bottom:18px; border-bottom:1px solid var(--line); gap:24px; flex-wrap:wrap; }
@@ -614,9 +706,9 @@ body {
         </div>
         <div class="imp-card">
           <div class="icon-num">03</div>
-          <h4>Three savings business cases address overlapping pools.</h4>
-          <p>Original BuCa <strong>€32.4M</strong> (Lever 2 "Agency Consolidation" = €8.9M); Content Studio BuCa <strong>€19.6M</strong> at 90% adoption (Scen 3A); TOM27 partially populated with €0.0–0.9M for 7 markets. Lever 2 of the Original BuCa and the Content Studio BuCa address the same agency consolidation pool. The headline totals are therefore not additive as currently written.</p>
-          <div class="data-pt">Overlapping scopes — not additive as written</div>
+          <h4>The three business cases are sequential, not competing.</h4>
+          <p>The 2023 Original BuCa (Accenture-led) identified <strong>€32.4M end-state across three levers</strong>. Two levers have since been operationalized by Randstad teams: <strong>Content Studio BuCa</strong> deepens Lever 2 (€8.9M → €19.6M, adding a revenue dimension), and <strong>TOM27 Analysis</strong> is the in-progress deep-dive on Lever 3. Lever 1 (Brand Rationalization, €10.2M) has no operational deep-dive yet.</p>
+          <div class="data-pt">1 strategic frame · 2 operational deep-dives · 1 gap</div>
         </div>
       </div>
     </div>
@@ -839,7 +931,7 @@ body {
     </div>
 
     <div class="pullquote">
-      Available materials include three savings cases — Original BuCa <em>€32.4M</em>, Content Studio BuCa <em>€19.6M</em>, and TOM27 (partially populated) — and one growth case from the Future Services Catalogue: <em>€32M</em> Gross Profit opportunity over three years.
+      The 2023 Original BuCa set the strategic frame at <em>€32.4M</em> across three levers. Two levers have since been operationalized in Randstad-led deep-dives — <em>Content Studio (€19.6M)</em> on Lever 2 and <em>TOM27 (in progress)</em> on Lever 3. The Future Services Catalogue adds the growth case: <em>€32M Gross Profit</em> opportunity over three years.
     </div>
   </section>
 
@@ -1865,34 +1957,95 @@ body {
     </div>
 
     <div style="margin-top:80px;">
-      <div class="section-eyebrow">Existing business cases</div>
-      <h2 class="section-title">Three savings cases <span class="accent">already exist</span>.</h2>
+      <div class="section-eyebrow">Business case genealogy</div>
+      <h2 class="section-title">One strategic frame, <span class="accent">two operational deep-dives</span>, one gap.</h2>
       <p class="section-intro">
-        Figures come straight from those models — what they claim, not added analysis. <strong>They overlap in scope and are not additive as written today.</strong>
+        The 2023 Original BuCa (Accenture-led) identified <strong>€32.4M end-state savings across three levers</strong>. Two of those levers have since been operationalized into deeper Randstad-led business cases. One — Brand Rationalization — sits at the 2023 strategic sizing only. The three numbers are <strong>sequential</strong> (frame → deep-dive), not competing.
       </p>
 
-      <div class="buca-grid">
-        <div class="buca-card">
-          <div class="src">Source · Original BuCa</div>
-          <h4>Marketing Transformation Business Case</h4>
-          <div class="savings">€32.4<small>M / yr end-state</small></div>
-          <p class="body">Average scenario across 3 levers: Brand rationalisation (€10.2M), Agency consolidation (€8.9M), Marketing model optimisation (€13.3M). 5-year cumulative cashflow: <strong>€185.2M</strong>. Phasing: €3.4M Y1 → €31.2M Y2 → €47.4M Y3 → €51.6M Y4-5.</p>
+      <div class="buca-frame-wrap">
+        <div class="buca-frame">
+          <div class="left">
+            <h4>Strategic Frame · Original BuCa</h4>
+            <div class="title">Marketing Transformation Business Case</div>
+            <div class="meta">Accenture · Created Nov 2023 · Last updated Mar 2026</div>
+          </div>
+          <div class="right">
+            <div class="num">€32.4<small>M / yr end-state</small></div>
+            <div class="lbl">5-year cumulative cashflow €185M · 3 levers</div>
+          </div>
         </div>
-        <div class="buca-card">
-          <div class="src">Source · Content Studio BuCa · Apr 2026</div>
-          <h4>Content Studio · Scen 3A (90% adoption)</h4>
-          <div class="savings">€19.6<small>M / yr end-state</small></div>
-          <p class="body">Sub-case of the Agency Consolidation lever. 4 adoption scenarios: 10% / 50% / 90% / 90%+Martech, yielding end-state values of <strong>€6.1M, €12.6M, €19.6M, €19.6M</strong>. Costs to run: €5.9M/yr. Five-year cumulative net: €36M (Scen 3A).</p>
+      </div>
+
+      <div class="lever-cards">
+        <div class="lever-card gap">
+          <div class="lc-head">
+            <span class="lc-tag">Lever 1</span>
+            <div class="lc-name">Brand Rationalization</div>
+            <div class="lc-acn">2023 Accenture estimate · <b>€10.2M</b> end-state</div>
+          </div>
+          <div class="lc-arrow gap">⇣ no operational case yet</div>
+          <div class="lc-deepdive">
+            <div>
+              <span class="lc-status gap">Strategic sizing only</span>
+              <div class="lc-dd-title">No Randstad-led deep-dive on file</div>
+              <div class="lc-dd-meta">Lever remains at the 2023 Accenture estimate</div>
+              <div class="lc-dd-num muted">— gap —</div>
+            </div>
+            <div class="lc-dd-note">
+              <strong>White space.</strong> No operational business case exists for brand-portfolio rationalization. The €10.2M figure remains at the 2023 strategic level. <strong>Possible candidate for the next phase of work.</strong>
+            </div>
+          </div>
         </div>
-        <div class="buca-card">
-          <div class="src">Source · TOM27 Analysis</div>
-          <h4>Target Operating Model 2027</h4>
-          <div class="savings">€0.0–0.9<small>M / yr only 7 markets populated</small></div>
-          <p class="body">TOM savings columns are filled for Argentina, Brazil, Germany, Italy, Japan, Poland, Portugal, Sweden, UK only. The Hygiene, Thresholds and PushGCC scenarios provide structure but euro savings haven't been costed in this file.</p>
+
+        <div class="lever-card">
+          <div class="lc-head">
+            <span class="lc-tag">Lever 2</span>
+            <div class="lc-name">Agency Consolidation (content)</div>
+            <div class="lc-acn">2023 Accenture estimate · <b>€8.9M</b> end-state</div>
+          </div>
+          <div class="lc-arrow">⇣ operationalized</div>
+          <div class="lc-deepdive">
+            <div>
+              <span class="lc-status done">Operationalized · Randstad-led</span>
+              <div class="lc-dd-title">Content Studio BuCa · Scen 3A (90% adoption)</div>
+              <div class="lc-dd-meta">Michiel Rauws · created Jan 2024 · last updated May 2026</div>
+              <div class="lc-dd-num">€19.6<small>M / yr end-state</small></div>
+            </div>
+            <div class="lc-dd-note">
+              <strong>2.2× the 2023 estimate</strong> because the deep-dive adds an <strong>Effectiveness lever</strong> (revenue growth, €15.4M of the €19.6M) on top of the original Efficiency lever (€4.2M). Four adoption scenarios modelled: €6.1M / €12.6M / €19.6M / €19.6M. Running cost €5.9M/yr.
+            </div>
+          </div>
+        </div>
+
+        <div class="lever-card">
+          <div class="lc-head">
+            <span class="lc-tag">Lever 3</span>
+            <div class="lc-name">Marketing Model Optimization</div>
+            <div class="lc-acn">2023 Accenture estimate · <b>€13.3M</b> end-state</div>
+          </div>
+          <div class="lc-arrow">⇣ operationalization in progress</div>
+          <div class="lc-deepdive">
+            <div>
+              <span class="lc-status partial">Partially operationalized · Randstad-led</span>
+              <div class="lc-dd-title">TOM27 Analysis</div>
+              <div class="lc-dd-meta">Contains FTE Hygiene · Thresholds · PushGCC scenarios</div>
+              <div class="lc-dd-num">€0.0–0.9<small>M / 7 markets only</small></div>
+            </div>
+            <div class="lc-dd-note">
+              <strong>Structure built, euro savings partially populated.</strong> TOM savings columns filled for 7 markets (Argentina, Brazil, Germany, Italy, Japan, Poland, Portugal, Sweden, UK). Hygiene, Thresholds and PushGCC scenarios provide the analytical frame but completing the sizing across all 37 markets is outstanding.
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="callout" style="margin-top:32px;">
+        <h3>Reading the three numbers correctly</h3>
+        <p>The €32.4M (Original BuCa), €19.6M (Content Studio) and €0–0.9M (TOM27) are <strong>not three independent savings cases</strong>. The Content Studio BuCa supersedes Lever 2 of the Original BuCa (€8.9M → €19.6M, the increase coming from a new revenue-effectiveness dimension). TOM27 is the in-progress operational instantiation of Lever 3 (€13.3M target).</p>
+        <p><strong>The current view of total end-state value</strong>, with the deep-dives substituted in where they exist: Lever 1 €10.2M (Accenture estimate) + Lever 2 €19.6M (Content Studio, Scen 3A) + Lever 3 €13.3M (Accenture estimate; TOM27 completion pending) = <strong>~€43M end-state</strong>. The number is illustrative, not committed — but it's a cleaner read than treating the three documents as competing.</p>
+      </div>
+
+      <div class="callout" style="margin-top:24px;">
         <h3>Sizing rule for the next pass</h3>
         <p><strong>Benchmark percentages apply to addressable spend, not gross spend.</strong> Accenture's Content Factory benchmark of 20-50% cost savings, applied to €115M total 3P, would imply €23-57M — but only the ~€9.3M PDCC line (or ~€31.4M FC01 content/agency bucket, depending on scope) is genuinely addressable by a Content Factory intervention. The same logic applies to FTE: applying a 20% labour reduction to all 466 FTEs overstates the pool; the pure-marketing baseline after Hygiene reclassification is ~327 FTEs.</p>
       </div>
@@ -1910,9 +2063,9 @@ body {
     <div class="questions">
       <div class="q-card">
         <div class="num">Q01</div>
-        <h5>Reconcile the 3 business cases</h5>
-        <p>Original BuCa Lever 2 (€8.9M) and Content Studio BuCa Scen 3A (€19.6M) both address agency consolidation. FC01 deck doesn't reference either. The newer file appears to supersede the older lever — needs documentation.</p>
-        <span class="tag">Decision · reconcile with sponsor</span>
+        <h5>Should Lever 1 (Brand Rationalization) get its own operational deep-dive?</h5>
+        <p>Levers 2 and 3 of the 2023 Original BuCa have been operationalized in deeper Randstad-led cases (Content Studio BuCa and TOM27 respectively). Lever 1 — Brand Rationalization at €10.2M — has no operational deep-dive on file. White space worth confirming with the sponsor.</p>
+        <span class="tag">Decision · scope of next-phase work</span>
       </div>
       <div class="q-card">
         <div class="num">Q02</div>
@@ -1962,7 +2115,7 @@ body {
       <div class="section-eyebrow">Suggested next phase</div>
       <h2 class="section-title">A four-to-six week <span class="accent">validation diagnostic</span>.</h2>
       <p class="section-intro">
-        Not a savings hunt yet. The deliverable is one validated baseline, one reconciled BuCa view, and a sized opportunity heatmap with confidence intervals. By week 6: a single page showing how much money is on the table, by category and by market, with confidence levels and assumptions named.
+        Not a savings hunt yet. The deliverable is one validated baseline, one confirmed BuCa lever map (with the Lever 1 white-space decision), and a sized opportunity heatmap with confidence intervals. By week 6: a single page showing how much money is on the table, by category and by market, with confidence levels and assumptions named.
       </p>
 
       <div class="gantt">
@@ -1978,12 +2131,12 @@ body {
 
         <div class="gantt-row">
           <div class="gantt-name">
-            <h6>BuCa reconciliation</h6>
-            <p>Workshop with the three BuCa owners + FC01 Finance owner</p>
+            <h6>BuCa genealogy confirmation</h6>
+            <p>Confirm the lever-to-deep-dive mapping &amp; identify Lever 1 next-step</p>
           </div>
           <div class="gantt-track">
             <div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div><div class="gantt-cell"></div>
-            <div class="gantt-bar dk" style="left:0%; width:14%;">W1<span class="deliv">→ Signed opportunity map</span></div>
+            <div class="gantt-bar dk" style="left:0%; width:14%;">W1<span class="deliv">→ Signed lever map · Lever 1 scope decision</span></div>
           </div>
         </div>
 
